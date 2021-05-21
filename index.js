@@ -20,6 +20,7 @@ mongoose.connect(
 mongoose.connection.on('error', err => {
   console.log(`DB connection error: ${err}`)
 })
+
 //import routes
 const postRoutes = require('./routes/post')
 
@@ -31,6 +32,7 @@ app.use(morgan("dev"))
 //   next()
 // }
 // app.use(customMiddleWare)
+
 app.use(bodyParser.json())
 app.use('/', postRoutes)
 
