@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 const dotenv = require("dotenv")
 dotenv.config()
 
+const bodyParser = require('body-parser')
+
 mongoose.connect(
   process.env.MONGO_URI,
   {
@@ -29,7 +31,7 @@ app.use(morgan("dev"))
 //   next()
 // }
 // app.use(customMiddleWare)
-
+app.use(bodyParser.json())
 app.use('/', postRoutes)
 
 app.listen(process.env.PORT, () => {
