@@ -3,7 +3,7 @@ const app = express()
 const morgan = require("morgan")
 
 //import routes
-const { getPosts } = require('./routes/post')
+const postRoutes = require('./routes/post')
 
 
 //middleware
@@ -14,7 +14,7 @@ app.use(morgan("dev"))
 // }
 // app.use(customMiddleWare)
 
-app.get('/', getPosts)
+app.use('/', postRoutes)
 
 const port = 3001
 app.listen(port, () => {
